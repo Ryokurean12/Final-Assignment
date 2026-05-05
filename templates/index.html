@@ -1,0 +1,31 @@
+{% load static%}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{%static 'style.css'}">
+</head>
+<body>
+    <h1>Food Products</h1>
+
+{% for product in products %}
+    <h3>{{ product.name }}</h3>
+    <p>${{ product.price }}</p>
+{% endfor %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FlavorFoundry Market</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'market/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'cart' %}">Cart</a>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
